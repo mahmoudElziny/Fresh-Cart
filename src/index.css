@@ -24,6 +24,12 @@ a , a:hover{
     color: black;
     text-decoration: none;
 }
+
+.active {
+  color: var(--main-color) !important;
+  font-weight: 900;
+}
+
 .product:hover
 {
     box-shadow: var(--shadow);
@@ -60,4 +66,8 @@ a , a:hover{
 
 .loading{
     z-index: 405;
+}
+
+.container-fluid {
+  --bs-gutter-x: 5rem;
 }
