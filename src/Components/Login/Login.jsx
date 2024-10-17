@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'; 
 import { UserContext } from '../../Contexts/userContext';
 
@@ -12,6 +12,7 @@ export default function Login() {
   let navigate = useNavigate();
   let [errMessage, setErrMessage ] = useState(''); 
   let [loading, setLoading] = useState(true);
+
   async function loginForm(value){
     setLoading(false);
       let req = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', value)
@@ -58,8 +59,11 @@ export default function Login() {
         {formik.errors.password && formik.touched.password ? <div className='alert alert-danger'>
           {formik.errors.password}
         </div>: ""}
+
+        <Link to='/forgetPassword'>Forget Password....?</Link>
+        <br/>
         
-        {loading ? <button disabled={!(formik.isValid && formik.dirty)} className=' btn text-white mt-3 bg-main' type='submit'>Login</button>
+        {loading ? <button disabled={!(formik.isValid && formik.dirty)} className=' btn text-white mt-3 bg-main' type='submit'>Login </button>
         : <button className=' btn text-white mt-3 ms-1 bg-main' type='button'> <i className='fa-solid fa-spinner fa-spin'></i></button> }
         
       </form>

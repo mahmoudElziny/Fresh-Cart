@@ -12,6 +12,7 @@ import Brands from "./Components/Brands/Brands";
 import ForgetPassword from "./Components/ForgetPassword/ForgetPassword";
 import { UserContext, UserContextProvider } from "./Contexts/userContext";
 import GuardRouting from "./Components/ProtectRouting/GuardRouting";
+import ResetPassword from "./Components/ResetPassword/ResetPassword";
 
 export default function App() {
 
@@ -28,6 +29,7 @@ export default function App() {
         { path: "login", element: <Login /> },
         { index: true, element: <Register /> },
         { path: "forgetPassword", element: <ForgetPassword /> },
+        { path: "resetPassword", element: <ResetPassword /> },
         { path: "*", element: <NotFound /> },
       ]
     },
