@@ -1,10 +1,13 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'; 
+import { UserContext } from '../../Contexts/userContext';
 
 export default function Login() {
+
+  let {setUserToken} = useContext(UserContext);
 
   let navigate = useNavigate();
   let [errMessage, setErrMessage ] = useState(''); 
@@ -17,8 +20,10 @@ export default function Login() {
         setLoading(true)
       });
       if(req?.data.message == 'success'){
-        navigate('/home');
         setLoading(true);
+        localStorage.setItem('userToken', req.data.token);
+        setUserToken(req.data.token);
+        navigate('/home');
       }
   }
 

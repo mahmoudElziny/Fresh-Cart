@@ -1,8 +1,19 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/freshcart-logo.svg';
+import { UserContext } from '../../Contexts/userContext';
+import { jwtDecode } from 'jwt-decode';
 
 export default function Navbar() {
+  let {userToken, data, setUserToken} = useContext(UserContext);
+  let navigate = useNavigate();
+
+  function logout(){
+    localStorage.removeItem('userToken');
+    setUserToken(null);
+    navigate('/login');
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -12,12 +23,10 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            {userToken != null ?
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="home">Home</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="cart">Cart</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="products">Products</NavLink>
@@ -28,7 +37,11 @@ export default function Navbar() {
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="brands">Brands</NavLink>
               </li>
-            </ul>
+              <li className="nav-item">
+                <NavLink className="nav-link" aria-current="page" to="cart">Cart</NavLink>
+              </li>
+            </ul>: ""}
+
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item d-flex align-items-center">
                 <i className='fa-brands  fa-facebook mx-2'></i>
@@ -37,12 +50,18 @@ export default function Navbar() {
                 <i className='fa-brands  fa-youtube mx-2'></i>
                 <i className='fa-brands  fa-pinterest mx-2'></i>
               </li>
+
+              {userToken != null ? 
+              <li className="nav-item">
+                <span className='nav-link cursor-pointer' onClick={logout}> LogOut</span>
+              </li>  : <>
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="login">Login</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="/">Register</NavLink>
               </li>
+              </>  }
               
             </ul>
 
