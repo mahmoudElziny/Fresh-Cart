@@ -5,10 +5,17 @@ import { useQuery } from 'react-query';
 
 export default function Home() {
 
-  function getAllProducts(){
-    return axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
+  let [page, setPage] = useState(1);
+
+  function getAllProducts(queryData) {
+    return axios.get(`https://ecommerce.routemisr.com/api/v1/products?page=${queryData.queryKey[1]}`);
   }
-  let {isLoading, isError, isFetching, data} = useQuery('productsAPI', getAllProducts);
+  let { isLoading, isError, isFetching, data } = useQuery(['productsAPI', page], getAllProducts);
+
+  function getPageNumber(event){
+    let page = event.target.getAttribute('pageNum');
+    setPage(page)
+  }
 
   return (
     <>
@@ -19,9 +26,9 @@ export default function Home() {
             {data?.data.data.map((e) => {
               return (
                 <div key={e._id} className="col-md-2">
-                  <div className="product">
+                  <div className="product p-2">
                     <img src={e.imageCover} alt="" className="w-100" />
-                    <h6 className='text-main'>{e.category.name}</h6>
+                    <h6 className='text-main mt-2'>{e.category.name}</h6>
                     <h5>{e.title.split(" ").slice(0, 2).join(" ")}</h5>
                     <div className='d-flex justify-content-between'>
                       <span>{e.price}EGP</span>
@@ -34,6 +41,14 @@ export default function Home() {
             })}
 
           </div>
+          <nav aria-label="Page navigation example">
+            <ul className="pagination justify-content-center my-5">
+              <li className="page-item"><a className="page-link" onClick={()=>{setPage(page-1)}} >Previous</a></li>
+              <li className="page-item"><a className="page-link"  pageNum ='1' onClick={getPageNumber} >1</a></li>
+              <li className="page-item"><a className="page-link"  pageNum ='2' onClick={getPageNumber} >2</a></li>
+              <li className="page-item"><a className="page-link" onClick={()=>{setPage(page+1)}}  >Next</a></li>
+            </ul>
+          </nav>
         </div>
       }
 

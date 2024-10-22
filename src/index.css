@@ -71,3 +71,7 @@ a , a:hover{
 .container-fluid {
     --bs-gutter-x: 5rem;
 }
+
+.page-link {
+    color: var(--main-color) !important;
+}
