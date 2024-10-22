@@ -26,7 +26,7 @@ export default function Navbar() {
             {userToken != null ?
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="home">Home</NavLink>
+                <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" aria-current="page" to="products">Products</NavLink>
@@ -59,7 +59,7 @@ export default function Navbar() {
                 <NavLink className="nav-link" aria-current="page" to="login">Login</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/">Register</NavLink>
+                <NavLink className="nav-link" aria-current="page" to="register">Register</NavLink>
               </li>
               </>  }
               

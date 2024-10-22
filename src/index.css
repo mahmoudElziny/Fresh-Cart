@@ -26,8 +26,8 @@ a , a:hover{
 }
 
 .active {
-  color: var(--main-color) !important;
-  font-weight: 900;
+    color: var(--main-color) !important;
+    font-weight: 900;
 }
 
 .product:hover
@@ -69,5 +69,5 @@ a , a:hover{
 }
 
 .container-fluid {
-  --bs-gutter-x: 5rem;
+    --bs-gutter-x: 5rem;
 }
