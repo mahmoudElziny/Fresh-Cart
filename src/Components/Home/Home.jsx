@@ -1,32 +1,24 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Spinner from '../Spinner/Spinner';
+import { useQuery } from 'react-query';
 
 export default function Home() {
 
-  let [productList, setProductList] = useState([]);
-  let [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getAllProducts();
-  }, [])
-
-  async function getAllProducts() {
-    setLoading(true);
-    let req = await axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
-    setProductList(req.data.data);
-    setLoading(false);
+  function getAllProducts(){
+    return axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
   }
+  let {isLoading, isError, isFetching, data} = useQuery('productsAPI', getAllProducts);
 
   return (
     <>
-      {loading ?
+      {isLoading ?
         <Spinner /> :
         <div className='container py-5'>
           <div className="row g-5">
-            {productList.map((e) => {
+            {data?.data.data.map((e) => {
               return (
-                <div className="col-md-2">
+                <div key={e._id} className="col-md-2">
                   <div className="product">
                     <img src={e.imageCover} alt="" className="w-100" />
                     <h6 className='text-main'>{e.category.name}</h6>
