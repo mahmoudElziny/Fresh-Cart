@@ -75,3 +75,27 @@ a , a:hover{
 .page-link {
     color: var(--main-color) !important;
 }
+
+.nav-link:focus-visible {
+    box-shadow: none !important;
+}
+
+.owl-dots {
+    display: flex !important;
+    justify-content: center !important;
+}
+.owl-carousel button.owl-dot {
+    background-color: #D6D6D6 !important;
+    width: 18px !important;
+    height: 5px !important;
+    border-radius: 20px!important;
+    margin-inline: 4px !important;
+    margin-top: 8px !important;
+    padding: 7px !important;   
+}
+
+.owl-carousel button.owl-dot:hover {
+    background-color: #869791 !important;
+    color: #fff;
+    text-decoration: none;
+}

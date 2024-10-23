@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Spinner from '../Spinner/Spinner';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import MainSlider from '../MainSlider/MainSlider';
+import CategorySlider from '../CategorySlider/CategorySlider';
 
 export default function Home() {
 
@@ -14,7 +16,7 @@ export default function Home() {
   let { isLoading, isError, isFetching, data } = useQuery(['productsAPI', page], getAllProducts);
 
   function getPageNumber(event) {
-    let page = event.target.getAttribute('pageNum');
+    let page = event.target.getAttribute('pagenum');
     setPage(page)
   }
 
@@ -22,6 +24,9 @@ export default function Home() {
     <>
       {isLoading ?
         <Spinner /> :
+        <>
+        <MainSlider></MainSlider> 
+        <CategorySlider></CategorySlider>
         <div className='container py-5'>
           <div className="row g-5">
             {data?.data.data.map((e) => {
@@ -47,16 +52,14 @@ export default function Home() {
           <nav aria-label="Page navigation example">
             <ul className="pagination justify-content-center my-5">
               <li className="page-item"><a className="page-link" onClick={() => { setPage(page - 1) }} >Previous</a></li>
-              <li className="page-item"><a className="page-link" pageNum='1' onClick={getPageNumber} >1</a></li>
-              <li className="page-item"><a className="page-link" pageNum='2' onClick={getPageNumber} >2</a></li>
+              <li className="page-item"><a className="page-link" pagenum='1' onClick={getPageNumber} >1</a></li>
+              <li className="page-item"><a className="page-link" pagenum='2' onClick={getPageNumber} >2</a></li>
               <li className="page-item"><a className="page-link" onClick={() => { setPage(page + 1) }}  >Next</a></li>
             </ul>
           </nav>
         </div>
+        </>
       }
-
-
-
     </>
   )
 }

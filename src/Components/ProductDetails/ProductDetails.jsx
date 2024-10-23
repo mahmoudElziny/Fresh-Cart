@@ -21,6 +21,11 @@ export default function ProductDetails() {
         return axios.get(`https://ecommerce.routemisr.com/api/v1/products/${query.queryKey[1]}`);
     }
 
+    function getImageSrc(e) {
+        let imgPath = e.target.getAttribute("src");
+        document.querySelector("#myImg").setAttribute("src", imgPath);
+    }
+
     return (
         <>
             {isLoading ?
@@ -28,7 +33,18 @@ export default function ProductDetails() {
                 <div className='container py-5'>
                     <div className="row align-items-center">
                         <div className="col-md-3">
-                            <img src={product.imageCover} className='w-100' alt="" />
+                            <div className="row g-1 align-items-center">
+                                <div className="col-md-2">
+                                    {product.images.map( (e) => {
+                                        return (
+                                            <img src={e} className='w-100' id='imgs' onClick={getImageSrc} alt="" />
+                                        )
+                                    })}
+                                </div>
+                                <div className="col-md-10">
+                                    <img src={product.imageCover} className='w-100' id='myImg' alt="" />
+                                </div>
+                            </div>
                         </div>
                         <div className="col-md-9">
                             <h2>{product.title}</h2>
