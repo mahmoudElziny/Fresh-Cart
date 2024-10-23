@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Spinner from '../Spinner/Spinner';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -12,7 +13,7 @@ export default function Home() {
   }
   let { isLoading, isError, isFetching, data } = useQuery(['productsAPI', page], getAllProducts);
 
-  function getPageNumber(event){
+  function getPageNumber(event) {
     let page = event.target.getAttribute('pageNum');
     setPage(page)
   }
@@ -26,15 +27,17 @@ export default function Home() {
             {data?.data.data.map((e) => {
               return (
                 <div key={e._id} className="col-md-2">
-                  <div className="product p-2">
-                    <img src={e.imageCover} alt="" className="w-100" />
-                    <h6 className='text-main mt-2'>{e.category.name}</h6>
-                    <h5>{e.title.split(" ").slice(0, 2).join(" ")}</h5>
-                    <div className='d-flex justify-content-between'>
-                      <span>{e.price}EGP</span>
-                      <span><i className='fa-solid fa-star rating-color'></i> {e.ratingsAverage} </span>
-                    </div>
-                    <button className='btn bg-main text-white d-block w-100'>Add Product</button>
+                  <div className="product cursor-pointer p-2">
+                    <Link to={`/productDetails/${e._id}`}>
+                      <img src={e.imageCover} alt="" className="w-100" />
+                      <h6 className='text-main mt-2'>{e.category.name}</h6>
+                      <h5>{e.title.split(" ").slice(0, 2).join(" ")}</h5>
+                      <div className='d-flex justify-content-between'>
+                        <span>{e.price}EGP</span>
+                        <span><i className='fa-solid fa-star rating-color'></i> {e.ratingsAverage} </span>
+                      </div>
+                      <button className='btn bg-main text-white d-block w-100'>Add To Cart</button>
+                    </Link>
                   </div>
                 </div>
               )
@@ -43,10 +46,10 @@ export default function Home() {
           </div>
           <nav aria-label="Page navigation example">
             <ul className="pagination justify-content-center my-5">
-              <li className="page-item"><a className="page-link" onClick={()=>{setPage(page-1)}} >Previous</a></li>
-              <li className="page-item"><a className="page-link"  pageNum ='1' onClick={getPageNumber} >1</a></li>
-              <li className="page-item"><a className="page-link"  pageNum ='2' onClick={getPageNumber} >2</a></li>
-              <li className="page-item"><a className="page-link" onClick={()=>{setPage(page+1)}}  >Next</a></li>
+              <li className="page-item"><a className="page-link" onClick={() => { setPage(page - 1) }} >Previous</a></li>
+              <li className="page-item"><a className="page-link" pageNum='1' onClick={getPageNumber} >1</a></li>
+              <li className="page-item"><a className="page-link" pageNum='2' onClick={getPageNumber} >2</a></li>
+              <li className="page-item"><a className="page-link" onClick={() => { setPage(page + 1) }}  >Next</a></li>
             </ul>
           </nav>
         </div>

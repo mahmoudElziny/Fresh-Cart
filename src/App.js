@@ -15,6 +15,7 @@ import GuardRouting from "./Components/ProtectRouting/GuardRouting";
 import ResetPassword from "./Components/ResetPassword/ResetPassword";
 import { QueryClient, QueryClientProvider } from "react-query";
 import {ReactQueryDevtools} from 'react-query/devtools'
+import ProductDetails from "./Components/ProductDetails/ProductDetails";
 
 export default function App() {
   let queryClient = new QueryClient();
@@ -42,6 +43,15 @@ export default function App() {
               <Products />{" "}
             </GuardRouting>
           ),
+        },
+        {
+          path: "productDetails/:_id",
+          element: (
+            <GuardRouting>
+              {" "}
+              <ProductDetails />{" "}
+            </GuardRouting>
+          )
         },
         {
           path: "categories",
