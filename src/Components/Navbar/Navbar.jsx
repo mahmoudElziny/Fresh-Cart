@@ -3,12 +3,15 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/freshcart-logo.svg';
 import { UserContext } from '../../Contexts/userContext';
 import { jwtDecode } from 'jwt-decode';
+import { CartContext } from '../../Contexts/cartContext';
 
 export default function Navbar() {
-  let {userToken, data, setUserToken} = useContext(UserContext);
+
+  let { itemNum } = useContext(CartContext);
+  let { userToken, data, setUserToken } = useContext(UserContext);
   let navigate = useNavigate();
 
-  function logout(){
+  function logout() {
     localStorage.removeItem('userToken');
     setUserToken(null);
     navigate('/login');
@@ -16,7 +19,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/"> <img src={logo} alt="logo" /></NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,45 +27,52 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             {userToken != null ?
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="products">Products</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="categories">Categories</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="brands">Brands</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="cart">Cart</NavLink>
-              </li>
-            </ul>: ""}
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="products">Products</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="categories">Categories</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="brands">Brands</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="cart">Cart</NavLink>
+                </li>
+              </ul> : ""}
 
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item d-flex align-items-center">
-                <i className='fa-brands  fa-facebook mx-2'></i>
-                <i className='fa-brands  fa-twitter mx-2'></i>
-                <i className='fa-brands  fa-instagram mx-2'></i>
-                <i className='fa-brands  fa-youtube mx-2'></i>
-                <i className='fa-brands  fa-pinterest mx-2'></i>
+              <li className="nav-item d-flex align-items-center">
+                <i className='fa-brands  fa-facebook mx-2 text-muted'></i>
+                <i className='fa-brands  fa-twitter mx-2 text-muted'></i>
+                <i className='fa-brands  fa-instagram mx-2 text-muted'></i>
+                <i className='fa-brands  fa-youtube mx-2 text-muted'></i>
+                <i className='fa-brands  fa-pinterest mx-2 text-muted'></i>
               </li>
 
-              {userToken != null ? 
-              <li className="nav-item">
-                <span className='nav-link cursor-pointer' onClick={logout}> LogOut</span>
-              </li>  : <>
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="login">Login</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="register">Register</NavLink>
-              </li>
-              </>  }
-              
+              {userToken != null ? <>
+
+                <li className='nav-item d-flex align-items-center mx-2'>
+                  <div className='position-relative'>
+                    <i className='nav-link fa-solid fa-cart-shopping text-muted'></i>
+                    <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>{itemNum}</span>
+                  </div>
+                </li>
+                <li className="nav-item">
+                  <span className='nav-link cursor-pointer' onClick={logout}> LogOut</span>
+                </li> </> : <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="login">Login</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="register">Register</NavLink>
+                </li>
+              </>}
+
             </ul>
 
           </div>

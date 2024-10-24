@@ -31,7 +31,7 @@ export default function CategorySlider() {
                 {categoryList.map((e) => {
                     return (
                     <div className="item" key={e._id}>
-                        <img src={e.image} height={250} alt="" />
+                        <img src={e.image} height={200} alt="" />
                         <h6 className='text-black mt-2 fw-bold'>{e.name}</h6>
                     </div>
                     )

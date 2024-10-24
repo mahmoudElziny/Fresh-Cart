@@ -86,11 +86,12 @@ a , a:hover{
 }
 .owl-carousel button.owl-dot {
     background-color: #D6D6D6 !important;
-    width: 18px !important;
+    width: 17px !important;
     height: 5px !important;
     border-radius: 20px!important;
     margin-inline: 4px !important;
     margin-top: 8px !important;
+    margin-bottom: 8px !important;
     padding: 7px !important;   
 }
 

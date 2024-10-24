@@ -1,12 +1,16 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Spinner from '../Spinner/Spinner';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import MainSlider from '../MainSlider/MainSlider';
 import CategorySlider from '../CategorySlider/CategorySlider';
+import { CartContext } from '../../Contexts/cartContext';
+import Swal from 'sweetalert2';
 
 export default function Home() {
+  
+  let {addToCart, setItemNum} = useContext(CartContext);
 
   let [page, setPage] = useState(1);
 
@@ -17,7 +21,27 @@ export default function Home() {
 
   function getPageNumber(event) {
     let page = event.target.getAttribute('pagenum');
-    setPage(page)
+    setPage(page);
+  }
+
+  async function AddToCart(id){
+    let req = await addToCart(id).catch( (err)=>{
+      Swal.fire({
+        icon: 'error',
+        title: err.message,
+        text: "something went wrong"
+      });
+    } );
+
+    if(req.data.status == 'success'){
+      setItemNum(req.data.numOfCartItems);
+      Swal.fire({
+        icon: 'success',
+        title: 'Added To Cart',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
   }
 
   return (
@@ -30,7 +54,7 @@ export default function Home() {
         <div className='container py-5'>
           <div className="row g-5">
             {data?.data.data.map((e) => {
-              return (
+              return ( 
                 <div key={e._id} className="col-md-2">
                   <div className="product cursor-pointer p-2">
                     <Link to={`/productDetails/${e._id}`}>
@@ -41,8 +65,8 @@ export default function Home() {
                         <span>{e.price}EGP</span>
                         <span><i className='fa-solid fa-star rating-color'></i> {e.ratingsAverage} </span>
                       </div>
-                      <button className='btn bg-main text-white d-block w-100'>Add To Cart</button>
                     </Link>
+                    <button onClick={()=>{AddToCart(e._id)}}  className='btn bg-main text-white d-block w-100'>Add To Cart</button>
                   </div>
                 </div>
               )
