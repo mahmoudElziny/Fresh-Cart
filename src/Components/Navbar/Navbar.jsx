@@ -40,9 +40,6 @@ export default function Navbar() {
                 <li className="nav-item">
                   <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/brands">Brands</NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/cart">Cart</NavLink>
-                </li>
               </ul> : ""}
 
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -58,8 +55,8 @@ export default function Navbar() {
 
                 <li className='nav-item d-flex align-items-center mx-2'>
                   <div className='position-relative'>
-                    <i className='nav-link fa-solid fa-cart-shopping text-muted'></i>
-                    <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>{itemNum}</span>
+                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/cart"><i className='fa-solid fa-cart-shopping text-muted'></i></NavLink>
+                    <span className='position-absolute start-100 translate-middle badge rounded-pill bg-danger'>{itemNum}</span>
                   </div>
                 </li>
                 <li className="nav-item">

@@ -100,3 +100,7 @@ a , a:hover{
     color: #fff;
     text-decoration: none;
 }
+
+.nav-item .position-relative span {
+    top: 4px;
+}
