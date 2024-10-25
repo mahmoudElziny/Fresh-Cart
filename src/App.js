@@ -22,12 +22,12 @@ export default function App() {
 
   let routes = createBrowserRouter([
     {
-      path: "/",
+      path: "/Fresh-Cart",
       element: <Layout />,
       children: [
         {
           index: true,
-          path: "/",
+          path: "/Fresh-Cart",
           element: (
             <GuardRouting>
               {" "}
@@ -36,7 +36,7 @@ export default function App() {
           ),
         },
         {
-          path: "products",
+          path: "Fresh-Cart/products",
           element: (
             <GuardRouting>
               {" "}
@@ -45,7 +45,7 @@ export default function App() {
           ),
         },
         {
-          path: "productDetails/:_id",
+          path: "Fresh-Cart/productDetails/:_id",
           element: (
             <GuardRouting>
               {" "}
@@ -54,7 +54,7 @@ export default function App() {
           )
         },
         {
-          path: "categories",
+          path: "Fresh-Cart/categories",
           element: (
             <GuardRouting>
               {" "}
@@ -63,7 +63,7 @@ export default function App() {
           ),
         },
         {
-          path: "brands",
+          path: "Fresh-Cart/brands",
           element: (
             <GuardRouting>
               {" "}
@@ -72,7 +72,7 @@ export default function App() {
           ),
         },
         {
-          path: "cart",
+          path: "Fresh-Cartcart",
           element: (
             <GuardRouting>
               {" "}
@@ -80,10 +80,10 @@ export default function App() {
             </GuardRouting>
           ),
         },
-        { path: "login", element: <Login /> },
-        { path: "register", element: <Register /> },
-        { path: "forgetPassword", element: <ForgetPassword /> },
-        { path: "resetPassword", element: <ResetPassword /> },
+        { path: "Fresh-Cart/login", element: <Login /> },
+        { path: "Fresh-Cart/register", element: <Register /> },
+        { path: "Fresh-Cart/forgetPassword", element: <ForgetPassword /> },
+        { path: "Fresh-Cart/resetPassword", element: <ResetPassword /> },
         { path: "*", element: <NotFound /> },
       ],
     },

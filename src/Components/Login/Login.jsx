@@ -24,7 +24,7 @@ export default function Login() {
         setLoading(true);
         localStorage.setItem('userToken', req.data.token);
         setUserToken(req.data.token);
-        navigate('/');
+        navigate('/Fresh-Cart');
       }
   }
 

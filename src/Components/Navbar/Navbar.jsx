@@ -14,14 +14,14 @@ export default function Navbar() {
   function logout() {
     localStorage.removeItem('userToken');
     setUserToken(null);
-    navigate('/login');
+    navigate('Fresh-Cart/login');
   }
 
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/"> <img src={logo} alt="logo" /></NavLink>
+          <NavLink className="navbar-brand" to="/Fresh-Cart"> <img src={logo} alt="logo" /></NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -29,19 +29,19 @@ export default function Navbar() {
             {userToken != null ?
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart">Home</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="products">Products</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/products">Products</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="categories">Categories</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/categories">Categories</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="brands">Brands</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/brands">Brands</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="cart">Cart</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/cart">Cart</NavLink>
                 </li>
               </ul> : ""}
 
@@ -66,10 +66,10 @@ export default function Navbar() {
                   <span className='nav-link cursor-pointer' onClick={logout}> LogOut</span>
                 </li> </> : <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="login">Login</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/login">Login</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="register">Register</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/register">Register</NavLink>
                 </li>
               </>}
 

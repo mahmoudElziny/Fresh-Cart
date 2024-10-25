@@ -18,7 +18,7 @@ export default function Register() {
       });
       if(req?.data.message == 'success'){
         setLoading(true);
-        navigate('/login');
+        navigate('Fresh-Cart/login');
       }
   }
 

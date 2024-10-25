@@ -9,7 +9,7 @@ export default function GuardRouting({children}) {
         return children;       
     }else {
         return <>
-            <Navigate to="/login" />
+            <Navigate to="Fresh-Cart/login" />
         </>
     }
 }
