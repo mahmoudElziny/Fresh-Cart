@@ -72,7 +72,7 @@ export default function App() {
           ),
         },
         {
-          path: "Fresh-Cartcart",
+          path: "Fresh-Cart/cart",
           element: (
             <GuardRouting>
               {" "}
