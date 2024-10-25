@@ -10,7 +10,7 @@ export function CartContextProvider({ children }) {
 
     function addToCart(productId) {
         let body = {
-            productId: productId
+            productId
         }
         let headersOptions = {
             token: localStorage.getItem('userToken')
@@ -20,7 +20,14 @@ export function CartContextProvider({ children }) {
         
     }
 
-    return <CartContext.Provider value={{addToCart, itemNum, setItemNum}}>
+    function getUserCart(){
+        let headersOptions = {
+            token: localStorage.getItem('userToken')
+        }
+        return axios.get('https://ecommerce.routemisr.com/api/v1/cart',{headers: headersOptions})
+    }
+
+    return <CartContext.Provider value={{itemNum, setItemNum, addToCart, getUserCart}}>
                 {children}
             </CartContext.Provider>;
 }

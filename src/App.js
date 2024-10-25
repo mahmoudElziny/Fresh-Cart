@@ -16,6 +16,7 @@ import ResetPassword from "./Components/ResetPassword/ResetPassword";
 import { QueryClient, QueryClientProvider } from "react-query";
 import {ReactQueryDevtools} from 'react-query/devtools'
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
+import { CartContext } from "./Contexts/cartContext";
 
 export default function App() {
   let queryClient = new QueryClient();
@@ -90,11 +91,23 @@ export default function App() {
   ]);
 
   let { setUserToken } = useContext(UserContext);
+  let {getUserCart, setItemNum} = useContext(CartContext);
+
+
   useEffect(() => {
     if (localStorage.getItem("userToken") != null) {
       setUserToken(localStorage.getItem("userToken"));
+      getUserData();
     }
   });
+  
+  async function getUserData() {
+    let req = await getUserCart();
+    if(req.data.status == 'success'){
+      setItemNum(req.data.numOfCartItems);
+    }
+  }
+
   return (
     <>
       <QueryClientProvider client={queryClient}>

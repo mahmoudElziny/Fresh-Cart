@@ -4,10 +4,13 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'; 
 import { UserContext } from '../../Contexts/userContext';
+import { CartContext } from '../../Contexts/cartContext';
 
 export default function Login() {
 
   let {setUserToken} = useContext(UserContext);
+  let {getUserCart, setItemNum} = useContext(CartContext);
+
 
   let navigate = useNavigate();
   let [errMessage, setErrMessage ] = useState(''); 
@@ -24,8 +27,16 @@ export default function Login() {
         setLoading(true);
         localStorage.setItem('userToken', req.data.token);
         setUserToken(req.data.token);
+        getUserData(); 
         navigate('/Fresh-Cart');
       }
+  }
+
+  async function getUserData() {
+    let req = await getUserCart();
+    if(req.data.status == 'success'){
+      setItemNum(req.data.numOfCartItems);
+    }
   }
 
   let validationSchema = Yup.object({
