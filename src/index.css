@@ -104,3 +104,9 @@ a , a:hover{
 .nav-item .position-relative span {
     top: 4px;
 }
+
+.cart-line {
+    border-bottom: 2px solid #dee2e6 !important;
+    width: 90% !important;
+    margin: auto;
+}

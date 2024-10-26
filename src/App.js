@@ -102,9 +102,11 @@ export default function App() {
   });
   
   async function getUserData() {
-    let req = await getUserCart();
+    let req = await getUserCart().catch( (err) => {
+      
+    });
     if(req.data.status == 'success'){
-      setItemNum(req.data.numOfCartItems);
+      setItemNum(req?.data?.numOfCartItems);
     }
   }
 

@@ -27,7 +27,31 @@ export function CartContextProvider({ children }) {
         return axios.get('https://ecommerce.routemisr.com/api/v1/cart',{headers: headersOptions})
     }
 
-    return <CartContext.Provider value={{itemNum, setItemNum, addToCart, getUserCart}}>
+    function removeFromCart(id) {
+        let headersOptions = {
+            token: localStorage.getItem('userToken')
+        }
+        return axios.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`,{headers: headersOptions})
+    }
+
+    function updateCart(id, count) {
+        let headersOptions = {
+            token: localStorage.getItem('userToken')
+        }
+        let body = {
+            count
+        }
+        return axios.put(`https://ecommerce.routemisr.com/api/v1/cart/${id}`, body, {headers: headersOptions});
+    }
+
+    function clearCart() {
+        let headersOptions = {
+            token: localStorage.getItem('userToken')
+        }
+        return axios.delete(`https://ecommerce.routemisr.com/api/v1/cart`,{headers: headersOptions})
+    }
+
+    return <CartContext.Provider value={{itemNum, setItemNum, addToCart, getUserCart, removeFromCart, clearCart, updateCart}}>
                 {children}
             </CartContext.Provider>;
 }

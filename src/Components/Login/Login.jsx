@@ -33,8 +33,8 @@ export default function Login() {
   }
 
   async function getUserData() {
-    let req = await getUserCart();
-    if(req.data.status == 'success'){
+    let req = await getUserCart().catch((err) => {});
+    if(req?.data?.status == 'success'){
       setItemNum(req.data.numOfCartItems);
     }
   }
