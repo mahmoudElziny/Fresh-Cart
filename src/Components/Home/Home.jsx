@@ -44,6 +44,14 @@ export default function Home() {
     }
   }
 
+  function addToWishlist(e, id){
+    if(e.target.classList.contains('fa-regular')){
+      e.target.classList.replace('fa-regular', 'fa-solid');
+    }else {
+      e.target.classList.replace('fa-solid', 'fa-regular');
+    } 
+  }
+
   return (
     <>
       {isLoading ?
@@ -56,7 +64,7 @@ export default function Home() {
             {data?.data.data.map((e) => {
               return ( 
                 <div key={e._id} className="col-md-2">
-                  <div className="product cursor-pointer p-2">
+                  <div className="product cursor-pointer p-2 position-relative">
                     <Link to={`/Fresh-Cart/productDetails/${e._id}`}>
                       <img src={e.imageCover} alt="" className="w-100" />
                       <h6 className='text-main mt-2'>{e.category.name}</h6>
@@ -66,6 +74,7 @@ export default function Home() {
                         <span><i className='fa-solid fa-star rating-color'></i> {e.ratingsAverage} </span>
                       </div>
                     </Link>
+                    <i onClick={(e) => { addToWishlist(e,e._id) }} className='fa-regular fa-heart fs-4 position-absolute top-0 end-0 m-3 text-danger'></i>
                     <button onClick={()=>{AddToCart(e._id)}}  className='btn bg-main text-white d-block w-100'>Add To Cart</button>
                   </div>
                 </div>

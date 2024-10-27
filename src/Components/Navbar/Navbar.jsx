@@ -41,6 +41,9 @@ export default function Navbar() {
                 <li className="nav-item">
                   <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/brands">Brands</NavLink>
                 </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/allorders">All Orders</NavLink>
+                </li>
               </ul> : ""}
 
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -49,11 +52,16 @@ export default function Navbar() {
                 <i className='fa-brands  fa-twitter mx-2 text-muted'></i>
                 <i className='fa-brands  fa-instagram mx-2 text-muted'></i>
                 <i className='fa-brands  fa-youtube mx-2 text-muted'></i>
-                <i className='fa-brands  fa-pinterest mx-2 text-muted'></i>
               </li>
 
               {userToken != null ? <>
-
+                
+                <li className='nav-item d-flex align-items-center mx-2'>
+                  <div className='position-relative'>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/wishlist"><i class="fa-regular fa-heart text-muted fs-5"></i></NavLink>
+                    <span className='position-absolute start-100 translate-middle badge rounded-pill bg-danger'>{itemNum}</span>
+                  </div>
+                </li>
                 <li className='nav-item d-flex align-items-center mx-2'>
                   <div className='position-relative'>
                   <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/cart"><i className='fa-solid fa-cart-shopping text-muted'></i></NavLink>

@@ -20,6 +20,7 @@ import { CartContext } from "./Contexts/cartContext";
 import Settings from "./Components/Settings/Settings";
 import Allorders from "./Components/Allorders/Allorders";
 import Checkout from "./Components/Checkout/Checkout";
+import Wishlist from "./Components/Wishlist/Wishlist";
 
 export default function App() {
   let queryClient = new QueryClient();
@@ -86,6 +87,7 @@ export default function App() {
         },
         { path: "/Fresh-Cart/settings", element: <GuardRouting>  <Settings /> </GuardRouting> },
         { path: "/Fresh-Cart/allorders", element: <GuardRouting>  <Allorders /> </GuardRouting> },
+        { path: "/Fresh-Cart/wishlist", element: <GuardRouting>  <Wishlist /> </GuardRouting> },
         { path: "/Fresh-Cart/checkout/:id", element: <GuardRouting>  <Checkout /> </GuardRouting> },
         { path: "/Fresh-Cart/login", element: <Login /> },
         { path: "/Fresh-Cart/register", element: <Register /> },
