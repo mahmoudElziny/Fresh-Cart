@@ -32,7 +32,7 @@ export default function App() {
       children: [
         {
           index: true,
-          path: "/Fresh-Cart",
+          path: "/Fresh-Cart/home",
           element: (
             <GuardRouting>
               {" "}

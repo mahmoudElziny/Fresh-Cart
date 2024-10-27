@@ -17,12 +17,11 @@ export default function Navbar() {
     navigate('/Fresh-Cart/login');
   }
 
-
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/Fresh-Cart"> <img src={logo} alt="logo" /></NavLink>
+          <NavLink className="navbar-brand" to="/Fresh-Cart/home"> <img src={logo} alt="logo" /></NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +29,7 @@ export default function Navbar() {
             {userToken != null ?
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart">Home</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/home">Home</NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/products">Products</NavLink>
@@ -58,7 +57,7 @@ export default function Navbar() {
                 
                 <li className='nav-item d-flex align-items-center mx-2'>
                   <div className='position-relative'>
-                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/wishlist"><i class="fa-regular fa-heart text-muted fs-5"></i></NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/wishlist"><i className="fa-regular fa-heart text-muted fs-5" id='wishlist'></i></NavLink>
                     <span className='position-absolute start-100 translate-middle badge rounded-pill bg-danger'>{itemNum}</span>
                   </div>
                 </li>
