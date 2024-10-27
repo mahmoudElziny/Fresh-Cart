@@ -1,5 +1,4 @@
 import React from 'react'
-import Home from '../Home/Home'
 import { Navigate } from 'react-router-dom'
 
 export default function GuardRouting({children}) {

@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/freshcart-logo.svg';
 import { UserContext } from '../../Contexts/userContext';
-import { jwtDecode } from 'jwt-decode';
 import { CartContext } from '../../Contexts/cartContext';
 
 export default function Navbar() {
