@@ -34,7 +34,7 @@ export default function ResetPassword() {
 
         if(req.data.token){
             setLoading(true);
-            navigate('Fresh-Cart/login');
+            navigate('/Fresh-Cart/login');
         }
     }
 

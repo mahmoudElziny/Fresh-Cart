@@ -14,7 +14,7 @@ export default function Navbar() {
   function logout() {
     localStorage.removeItem('userToken');
     setUserToken(null);
-    navigate('Fresh-Cart/login');
+    navigate('/Fresh-Cart/login');
   }
 
 
@@ -33,13 +33,13 @@ export default function Navbar() {
                   <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart">Home</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/products">Products</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/products">Products</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/categories">Categories</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/categories">Categories</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/brands">Brands</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/brands">Brands</NavLink>
                 </li>
               </ul> : ""}
 
@@ -56,21 +56,21 @@ export default function Navbar() {
 
                 <li className='nav-item d-flex align-items-center mx-2'>
                   <div className='position-relative'>
-                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/cart"><i className='fa-solid fa-cart-shopping text-muted'></i></NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/cart"><i className='fa-solid fa-cart-shopping text-muted'></i></NavLink>
                     <span className='position-absolute start-100 translate-middle badge rounded-pill bg-danger'>{itemNum}</span>
                   </div>
                 </li>
                 <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/settings">Settings</NavLink>
+                <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/settings">Settings</NavLink>
                 </li>
                 <li className="nav-item">
                   <span className='nav-link cursor-pointer' onClick={logout}> LogOut </span>
                 </li> </> : <>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/login">Login</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/login">Login</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/register">Register</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/register">Register</NavLink>
                 </li>
               </>}
 

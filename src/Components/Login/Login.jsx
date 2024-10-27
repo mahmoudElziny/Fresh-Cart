@@ -71,7 +71,7 @@ export default function Login() {
           {formik.errors.password}
         </div>: ""}
 
-        <Link to='/forgetPassword'>Forget Password....?</Link>
+        <Link to='/Fresh-Cart/forgetPassword'>Forget Password....?</Link>
         <br/>
         
         {loading ? <button disabled={!(formik.isValid && formik.dirty)} className=' btn text-white mt-3 bg-main' type='submit'>Login </button>

@@ -57,7 +57,7 @@ export default function Home() {
               return ( 
                 <div key={e._id} className="col-md-2">
                   <div className="product cursor-pointer p-2">
-                    <Link to={`Fresh-Cart/productDetails/${e._id}`}>
+                    <Link to={`/Fresh-Cart/productDetails/${e._id}`}>
                       <img src={e.imageCover} alt="" className="w-100" />
                       <h6 className='text-main mt-2'>{e.category.name}</h6>
                       <h5>{e.title.split(" ").slice(0, 2).join(" ")}</h5>

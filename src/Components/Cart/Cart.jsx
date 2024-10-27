@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../Contexts/cartContext';
 import Spinner from '../Spinner/Spinner';
+import { NavLink } from 'react-router-dom';
 
 export default function Cart() {
 
@@ -23,6 +24,10 @@ export default function Cart() {
     if (req?.data?.status == 'success') {
       setLoading(false);
       setCartData(req?.data?.data);
+    }
+    if(cartData == null){
+      setLoading(false);
+      setCartData(null);
     }
   }
 
@@ -96,6 +101,7 @@ export default function Cart() {
                 </>)
               })}
               <h4 className='text-main p-5'>Total Price: {cartData.totalCartPrice}EGP</h4>
+              <NavLink className='btn bg-main text-white' to="/Fresh-Cart/checkout">Check out payment </NavLink>
             </div>
           </>}
 

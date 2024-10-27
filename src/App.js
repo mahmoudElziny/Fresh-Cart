@@ -18,6 +18,8 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import { CartContext } from "./Contexts/cartContext";
 import Settings from "./Components/Settings/Settings";
+import Allorders from "./Components/Allorders/Allorders";
+import Checkout from "./Components/Checkout/Checkout";
 
 export default function App() {
   let queryClient = new QueryClient();
@@ -38,7 +40,7 @@ export default function App() {
           ),
         },
         {
-          path: "Fresh-Cart/products",
+          path: "/Fresh-Cart/products",
           element: (
             <GuardRouting>
               {" "}
@@ -47,7 +49,7 @@ export default function App() {
           ),
         },
         {
-          path: "Fresh-Cart/productDetails/:_id",
+          path: "/Fresh-Cart/productDetails/:_id",
           element: (
             <GuardRouting>
               {" "}
@@ -56,7 +58,7 @@ export default function App() {
           )
         },
         {
-          path: "Fresh-Cart/categories",
+          path: "/Fresh-Cart/categories",
           element: (
             <GuardRouting>
               {" "}
@@ -65,7 +67,7 @@ export default function App() {
           ),
         },
         {
-          path: "Fresh-Cart/brands",
+          path: "/Fresh-Cart/brands",
           element: (
             <GuardRouting>
               {" "}
@@ -74,7 +76,7 @@ export default function App() {
           ),
         },
         {
-          path: "Fresh-Cart/cart",
+          path: "/Fresh-Cart/cart",
           element: (
             <GuardRouting>
               {" "}
@@ -82,11 +84,13 @@ export default function App() {
             </GuardRouting>
           ),
         },
-        { path: "Fresh-Cart/settings", element: <GuardRouting>  <Settings /> </GuardRouting> },
-        { path: "Fresh-Cart/login", element: <Login /> },
-        { path: "Fresh-Cart/register", element: <Register /> },
-        { path: "Fresh-Cart/forgetPassword", element: <ForgetPassword /> },
-        { path: "Fresh-Cart/resetPassword", element: <ResetPassword /> },
+        { path: "/Fresh-Cart/settings", element: <GuardRouting>  <Settings /> </GuardRouting> },
+        { path: "/Fresh-Cart/allorders", element: <GuardRouting>  <Allorders /> </GuardRouting> },
+        { path: "/Fresh-Cart/checkout", element: <GuardRouting>  <Checkout /> </GuardRouting> },
+        { path: "/Fresh-Cart/login", element: <Login /> },
+        { path: "/Fresh-Cart/register", element: <Register /> },
+        { path: "/Fresh-Cart/forgetPassword", element: <ForgetPassword /> },
+        { path: "/Fresh-Cart/resetPassword", element: <ResetPassword /> },
         { path: "*", element: <NotFound /> },
       ],
     },

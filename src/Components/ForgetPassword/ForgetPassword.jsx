@@ -50,7 +50,7 @@ export default function ForgetPassword() {
       setErr(err.response.data.message);  
     });
     if(req.data.status == 'Success'){
-      navigate('Fresh-Cart/resetPassword');
+      navigate('/Fresh-Cart/resetPassword');
     }
   }
 
