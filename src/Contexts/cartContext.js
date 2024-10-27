@@ -51,7 +51,17 @@ export function CartContextProvider({ children }) {
         return axios.delete(`https://ecommerce.routemisr.com/api/v1/cart`,{headers: headersOptions})
     }
 
-    return <CartContext.Provider value={{itemNum, setItemNum, addToCart, getUserCart, removeFromCart, clearCart, updateCart}}>
+    function checkoutPayment(id, data){
+        let headersOptions = {
+            token: localStorage.getItem('userToken')
+        }
+        let body = {
+            shippingAddress: data
+        }
+        return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=http://localhost:3000/Fresh-Cart`, body, {headers: headersOptions})
+    }
+
+    return <CartContext.Provider value={{itemNum, setItemNum, addToCart, getUserCart, removeFromCart, clearCart, updateCart, checkoutPayment}}>
                 {children}
             </CartContext.Provider>;
 }

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Cart() {
 
-  let { getUserCart, updateCart, removeFromCart, clearCart, setItemNum } = useContext(CartContext);
+  let { getUserCart, updateCart, removeFromCart, clearCart, setItemNum, itemNum } = useContext(CartContext);
 
   let [cartData, setCartData] = useState(null);
   let [loading, setLoading] = useState(true);
@@ -15,19 +15,22 @@ export default function Cart() {
   }, []);
 
   async function getUserData() {
+    setLoading(true);
     let req = await getUserCart().catch((err) => {
       if (err.response.data.statusMsg == 'fail') {
-        setLoading(false);
         setCartData(null);
+        setLoading(false);
       }
     });
     if (req?.data?.status == 'success') {
       setLoading(false);
-      setCartData(req?.data?.data);
-    }
-    if(cartData == null){
-      setLoading(false);
-      setCartData(null);
+      if(req?.data?.numOfCartItems == 0){
+        setItemNum(0);
+      }else{
+        setCartData(req?.data?.data);
+      }
+      
+            
     }
   }
 
@@ -62,7 +65,7 @@ export default function Cart() {
       {loading ? <>
         <Spinner />
       </> : <>
-        {cartData == null ?
+        {cartData == null || itemNum == 0 ?
           <div className='alert alert-danger m-5'>Your Cart is Empty</div>
           : <>
             <div className='container bg-body-tertiary my-5'>
@@ -100,8 +103,8 @@ export default function Cart() {
                   <div className='cart-line'></div>
                 </>)
               })}
-              <h4 className='text-main p-5'>Total Price: {cartData.totalCartPrice}EGP</h4>
-              <NavLink className='btn bg-main text-white' to="/Fresh-Cart/checkout">Check out payment </NavLink>
+              <h4 className='text-main px-5 pt-3'>Total Price: {cartData.totalCartPrice}EGP</h4>
+              <NavLink className='btn bg-main text-white mx-5 my-3' to={"/Fresh-Cart/checkout/"+cartData._id}>Check out payment </NavLink>
             </div>
           </>}
 

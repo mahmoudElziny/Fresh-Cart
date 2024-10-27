@@ -86,7 +86,7 @@ export default function App() {
         },
         { path: "/Fresh-Cart/settings", element: <GuardRouting>  <Settings /> </GuardRouting> },
         { path: "/Fresh-Cart/allorders", element: <GuardRouting>  <Allorders /> </GuardRouting> },
-        { path: "/Fresh-Cart/checkout", element: <GuardRouting>  <Checkout /> </GuardRouting> },
+        { path: "/Fresh-Cart/checkout/:id", element: <GuardRouting>  <Checkout /> </GuardRouting> },
         { path: "/Fresh-Cart/login", element: <Login /> },
         { path: "/Fresh-Cart/register", element: <Register /> },
         { path: "/Fresh-Cart/forgetPassword", element: <ForgetPassword /> },
