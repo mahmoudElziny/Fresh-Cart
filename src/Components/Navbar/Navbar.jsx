@@ -17,6 +17,7 @@ export default function Navbar() {
     navigate('Fresh-Cart/login');
   }
 
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
@@ -60,7 +61,10 @@ export default function Navbar() {
                   </div>
                 </li>
                 <li className="nav-item">
-                  <span className='nav-link cursor-pointer' onClick={logout}> LogOut</span>
+                <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/settings">Settings</NavLink>
+                </li>
+                <li className="nav-item">
+                  <span className='nav-link cursor-pointer' onClick={logout}> LogOut </span>
                 </li> </> : <>
                 <li className="nav-item">
                   <NavLink className="nav-link" aria-current="page" to="Fresh-Cart/login">Login</NavLink>

@@ -9,9 +9,11 @@ export function UserContextProvider({ children }) {
     let [userToken, setUserToken] = useState(null);
     let data = null;
 
-    if(userToken != null){
+    if (userToken != null) {
         data = jwtDecode(userToken);
     }
 
-    return <UserContext.Provider value={{ data, userToken, setUserToken }}>{children}</UserContext.Provider>;
+    return <UserContext.Provider value={{ data, userToken, setUserToken }}>
+        {children}
+    </UserContext.Provider>;
 }

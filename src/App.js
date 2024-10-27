@@ -14,9 +14,10 @@ import { UserContext } from "./Contexts/userContext";
 import GuardRouting from "./Components/ProtectRouting/GuardRouting";
 import ResetPassword from "./Components/ResetPassword/ResetPassword";
 import { QueryClient, QueryClientProvider } from "react-query";
-import {ReactQueryDevtools} from 'react-query/devtools'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import { CartContext } from "./Contexts/cartContext";
+import Settings from "./Components/Settings/Settings";
 
 export default function App() {
   let queryClient = new QueryClient();
@@ -81,6 +82,7 @@ export default function App() {
             </GuardRouting>
           ),
         },
+        { path: "Fresh-Cart/settings", element: <GuardRouting>  <Settings /> </GuardRouting> },
         { path: "Fresh-Cart/login", element: <Login /> },
         { path: "Fresh-Cart/register", element: <Register /> },
         { path: "Fresh-Cart/forgetPassword", element: <ForgetPassword /> },
@@ -91,7 +93,7 @@ export default function App() {
   ]);
 
   let { setUserToken } = useContext(UserContext);
-  let {getUserCart, setItemNum} = useContext(CartContext);
+  let { getUserCart, setItemNum } = useContext(CartContext);
 
 
   useEffect(() => {
@@ -100,12 +102,12 @@ export default function App() {
       getUserData();
     }
   });
-  
+
   async function getUserData() {
-    let req = await getUserCart().catch( (err) => {
-      
+    let req = await getUserCart().catch((err) => {
+
     });
-    if(req.data.status == 'success'){
+    if (req.data.status == 'success') {
       setItemNum(req?.data?.numOfCartItems);
     }
   }
