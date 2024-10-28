@@ -20,7 +20,7 @@ export default function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/Fresh-Cart"> <img src={logo} alt="logo" /></NavLink>
+          <NavLink className="navbar-brand" to="/Fresh-Cart"> <img src={logo} alt="logo"/> </NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -28,7 +28,7 @@ export default function Navbar() {
             {userToken != null ?
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart">Home</NavLink>
+                  <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/home">Home</NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink className="nav-link" aria-current="page" to="/Fresh-Cart/products">Products</NavLink>

@@ -24,7 +24,7 @@ import Wishlist from "./Components/Wishlist/Wishlist";
 
 export default function App() {
   let queryClient = new QueryClient();
-
+  
   let routes = createBrowserRouter([
     {
       path: "/Fresh-Cart",
@@ -32,7 +32,7 @@ export default function App() {
       children: [
         {
           index: true,
-          path: "/Fresh-Cart",
+          path: "/Fresh-Cart/home",
           element: (
             <GuardRouting>
               {" "}
@@ -85,6 +85,7 @@ export default function App() {
             </GuardRouting>
           ),
         },
+        { path: "/Fresh-Cart/", element: <GuardRouting>  <Home /> </GuardRouting> },
         { path: "/Fresh-Cart/settings", element: <GuardRouting>  <Settings /> </GuardRouting> },
         { path: "/Fresh-Cart/allorders", element: <GuardRouting>  <Allorders /> </GuardRouting> },
         { path: "/Fresh-Cart/wishlist", element: <GuardRouting>  <Wishlist /> </GuardRouting> },
