@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../Contexts/cartContext';
 import Spinner from '../Spinner/Spinner';
 import { NavLink } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 export default function Cart() {
 
@@ -62,6 +63,12 @@ export default function Cart() {
 
   return (
     <>
+    <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content='Cart'/>
+                <title>Cart</title>
+    </Helmet>
+
       {loading ? <>
         <Spinner />
       </> : <>

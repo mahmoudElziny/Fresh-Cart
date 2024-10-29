@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
 import { CartContext } from '../../Contexts/cartContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 export default function ProductDetails() {
 
@@ -50,6 +51,11 @@ export default function ProductDetails() {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content='Product Details' />
+                <title>Product Details</title>
+            </Helmet>
             {isLoading ?
                 <Spinner /> :
                 <div className='container py-5'>

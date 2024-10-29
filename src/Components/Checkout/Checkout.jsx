@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import * as Yup from 'yup';
 import Cart from '../Cart/Cart';
 import { CartContext } from '../../Contexts/cartContext';
+import { Helmet } from 'react-helmet';
 
 export default function Checkout() {
 
@@ -35,6 +36,12 @@ export default function Checkout() {
   }
 
   return (
+    <>
+    <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content='Checkout'/>
+                <title>Checkout</title>
+    </Helmet>
     <div className='w-75 mx-auto my-5'>
       <form onSubmit={formik.handleSubmit}>
         <div className="mb-3">
@@ -52,5 +59,5 @@ export default function Checkout() {
         <button disabled={!(formik.isValid && formik.dirty)} type='submit' className='btn bg-main text-white d-block w-100'>Pay <i className='fa-brands fa-cc-visa mx-2'></i></button>
       </form>
     </div>
-  )
+    </>)
 }

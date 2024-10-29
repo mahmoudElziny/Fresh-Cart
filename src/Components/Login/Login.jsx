@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'; 
 import { UserContext } from '../../Contexts/userContext';
 import { CartContext } from '../../Contexts/cartContext';
+import { Helmet } from 'react-helmet';
 
 export default function Login() {
 
@@ -54,6 +55,13 @@ export default function Login() {
   }) 
 
   return (
+    <>
+    <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content='Login'/>
+                <title>Login</title>
+    </Helmet>
+
     <div className='m-5'>
       <h2>Login Now :</h2>
       {errMessage != "" ? <div className='alert alert-danger'>{errMessage}</div>: ""}
@@ -79,5 +87,6 @@ export default function Login() {
         
       </form>
     </div>
+    </>
   )
 }

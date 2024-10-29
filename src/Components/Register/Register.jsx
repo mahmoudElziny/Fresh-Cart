@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'; 
 
@@ -43,6 +44,12 @@ export default function Register() {
   }) 
 
   return (
+    <>
+    <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content='Register'/>
+                <title>Register</title>
+    </Helmet>
     <div className='m-5'>
       <h2>Register Now :</h2>
       {errMessage != "" ? <div className='alert alert-danger'>{errMessage}</div>: ""}
@@ -83,5 +90,5 @@ export default function Register() {
         
       </form>
     </div>
-  )
+  </>)
 }

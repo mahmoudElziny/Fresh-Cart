@@ -1,11 +1,19 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../Contexts/userContext';
+import { Helmet } from 'react-helmet';
 
 export default function Settings() {
 
-    let {data} = useContext(UserContext);
+  let { data } = useContext(UserContext);
 
   return (
-    <div>Hello {data.name} </div>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name='description' content='Settings' />
+        <title>Settings</title>
+      </Helmet>
+      <div>Hello {data.name} </div>
+    </>
   )
 }

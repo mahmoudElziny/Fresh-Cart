@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
@@ -24,42 +25,49 @@ export default function ResetPassword() {
         validationSchema
     });
 
-    async function ResetPasswordApi(value){
+    async function ResetPasswordApi(value) {
         setLoading(false);
-        let req = await axios.put(`https://ecommerce.routemisr.com/api/v1/auth/resetPassword`,value)
-        .catch((err)=>{
-        setErrMessage(err.response.data.message);
-        setLoading(true);
-        });
+        let req = await axios.put(`https://ecommerce.routemisr.com/api/v1/auth/resetPassword`, value)
+            .catch((err) => {
+                setErrMessage(err.response.data.message);
+                setLoading(true);
+            });
 
-        if(req.data.token){
+        if (req.data.token) {
             setLoading(true);
             navigate('/Fresh-Cart/login');
         }
     }
 
     return (
-        <div className='m-5'>
-            <h2>Reset Password :</h2>
-            {errMessage != "" ? <div className='alert alert-danger'>{errMessage}</div> : ""}
-            <form onSubmit={formik.handleSubmit}>
+        <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content='Products' />
+                <title>Products</title>
+            </Helmet>
 
-                <label htmlFor="email">Email:</label>
-                <input onBlur={formik.handleBlur} onChange={formik.handleChange} className='form-control mb-3' name='email' type="email" id='email' />
-                {formik.errors.email && formik.touched.email ? <div className='alert alert-danger'>
-                    {formik.errors.email}
-                </div> : ""}
+            <div className='m-5'>
+                <h2>Reset Password :</h2>
+                {errMessage != "" ? <div className='alert alert-danger'>{errMessage}</div> : ""}
+                <form onSubmit={formik.handleSubmit}>
 
-                <label htmlFor="newPassword">New Password:</label>
-                <input onBlur={formik.handleBlur} onChange={formik.handleChange} className='form-control mb-3' name='newPassword' type="password" id='newPassword' />
-                {formik.errors.newPassword && formik.touched.newPassword ? <div className='alert alert-danger'>
-                    {formik.errors.password}
-                </div> : ""}
+                    <label htmlFor="email">Email:</label>
+                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} className='form-control mb-3' name='email' type="email" id='email' />
+                    {formik.errors.email && formik.touched.email ? <div className='alert alert-danger'>
+                        {formik.errors.email}
+                    </div> : ""}
 
-                {loading ? <button disabled={!(formik.isValid && formik.dirty)} className=' btn text-white mt-3 bg-main' type='submit'>Update Password</button>
-                    : <button className=' btn text-white mt-3 ms-1 bg-main' type='button'> <i className='fa-solid fa-spinner fa-spin'></i></button>}
+                    <label htmlFor="newPassword">New Password:</label>
+                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} className='form-control mb-3' name='newPassword' type="password" id='newPassword' />
+                    {formik.errors.newPassword && formik.touched.newPassword ? <div className='alert alert-danger'>
+                        {formik.errors.password}
+                    </div> : ""}
 
-            </form>
-        </div>
-    )
+                    {loading ? <button disabled={!(formik.isValid && formik.dirty)} className=' btn text-white mt-3 bg-main' type='submit'>Update Password</button>
+                        : <button className=' btn text-white mt-3 ms-1 bg-main' type='button'> <i className='fa-solid fa-spinner fa-spin'></i></button>}
+
+                </form>
+            </div>
+        </>)
 }

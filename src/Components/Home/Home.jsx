@@ -7,6 +7,7 @@ import MainSlider from '../MainSlider/MainSlider';
 import CategorySlider from '../CategorySlider/CategorySlider';
 import { CartContext } from '../../Contexts/cartContext';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 export default function Home() {
   
@@ -54,6 +55,11 @@ export default function Home() {
 
   return (
     <>
+    <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content='Home'/>
+                <title>Home</title>
+    </Helmet>
       {isLoading ?
         <Spinner /> :
         <>

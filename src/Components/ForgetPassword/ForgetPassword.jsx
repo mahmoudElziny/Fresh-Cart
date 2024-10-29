@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React, { useState } from 'react'
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
@@ -56,6 +57,12 @@ export default function ForgetPassword() {
 
 
   return (
+    <>
+    <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content='Forgot Password'/>
+                <title>Forgot Password</title>
+    </Helmet>
     <div className='m-5'>
 
       {errMessage ? <div className='alert alert-danger'>{errMessage}</div> : ""}
@@ -76,5 +83,5 @@ export default function ForgetPassword() {
     }
       
     </div>
-  )
+  </>)
 } 
