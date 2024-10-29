@@ -7,7 +7,7 @@ export default function Products() {
       <Helmet>
         <meta charSet="utf-8" />
         <meta name='description' content='Products' />
-        <title>Products</title>
+        <title>FreshCart | Products</title>
       </Helmet>
       <div>Products</div>
     </>

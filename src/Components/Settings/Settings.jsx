@@ -11,7 +11,7 @@ export default function Settings() {
       <Helmet>
         <meta charSet="utf-8" />
         <meta name='description' content='Settings' />
-        <title>Settings</title>
+        <title>FreshCart | Settings</title>
       </Helmet>
       <div>Hello {data.name} </div>
     </>

@@ -6,7 +6,7 @@ export default function Allorders() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='All Orders'/>
-                <title>All Orders</title>
+                <title>FreshCart | All Orders</title>
     </Helmet>
     <div>Allorders</div>
   </>)

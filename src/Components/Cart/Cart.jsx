@@ -66,7 +66,7 @@ export default function Cart() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Cart'/>
-                <title>Cart</title>
+                <title>FreshCart | Cart</title>
     </Helmet>
 
       {loading ? <>

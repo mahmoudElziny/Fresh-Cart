@@ -6,8 +6,8 @@ export default function Brands() {
     <>
     <Helmet>
                 <meta charSet="utf-8" />
-                <meta name='description' content='All Orders'/>
-                <title>All Orders</title>
+                <meta name='description' content='Brands'/>
+                <title>FreshCart | Brands</title>
     </Helmet>
     <div>Brands</div>
     </>)

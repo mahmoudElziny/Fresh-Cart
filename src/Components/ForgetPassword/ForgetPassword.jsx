@@ -61,7 +61,7 @@ export default function ForgetPassword() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Forgot Password'/>
-                <title>Forgot Password</title>
+                <title>FreshCart | ForgotPassword</title>
     </Helmet>
     <div className='m-5'>
 

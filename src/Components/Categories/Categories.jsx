@@ -7,7 +7,7 @@ export default function Categories() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Categories'/>
-                <title>Categories</title>
+                <title>FreshCart | Categories</title>
     </Helmet>
     <div>Categories</div>
     </>)

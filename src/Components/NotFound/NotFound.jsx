@@ -8,7 +8,7 @@ export default function NotFound() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Not found'/>
-                <title>Not found</title>
+                <title>FreshCart | Not found</title>
     </Helmet>
     <div className='d-flex justify-content-center align-content-center'>
       <img src={notFound} alt="notFound" />

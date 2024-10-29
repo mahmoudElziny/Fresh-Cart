@@ -48,7 +48,7 @@ export default function Register() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Register'/>
-                <title>Register</title>
+                <title>FreshCart | Register</title>
     </Helmet>
     <div className='m-5'>
       <h2>Register Now :</h2>

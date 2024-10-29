@@ -51,13 +51,14 @@ export default function ProductDetails() {
 
     return (
         <>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <meta name='description' content='Product Details' />
-                <title>Product Details</title>
-            </Helmet>
+            
             {isLoading ?
-                <Spinner /> :
+                <Spinner /> : <>
+                <Helmet>
+                <meta charSet="utf-8" />
+                <meta name='description' content={product?.title} />
+                <title>FreshCart | {product?.title}</title>
+            </Helmet>
                 <div className='container py-5'>
                     <div className="row align-items-center">
                         <div className="col-md-3">
@@ -85,7 +86,8 @@ export default function ProductDetails() {
                             <button onClick={() => AddToCart(product._id)} className='btn bg-main text-white d-block w-100 my-3'> + add to cart</button>
                         </div>
                     </div>
-                </div>}
+                </div> 
+                </>}
         </>
     )
 }

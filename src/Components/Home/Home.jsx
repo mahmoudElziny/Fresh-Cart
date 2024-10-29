@@ -58,7 +58,7 @@ export default function Home() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Home'/>
-                <title>Home</title>
+                <title>FreshCart | Home</title>
     </Helmet>
       {isLoading ?
         <Spinner /> :

@@ -8,7 +8,7 @@ export default function Wishlist() {
             <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Wishlist' />
-                <title>Wishlist</title>
+                <title>FreshCart | Wishlist</title>
             </Helmet>
             <div>Wishlist</div>
         </>

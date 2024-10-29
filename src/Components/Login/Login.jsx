@@ -59,7 +59,7 @@ export default function Login() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Login'/>
-                <title>Login</title>
+                <title>FreshCart | Login</title>
     </Helmet>
 
     <div className='m-5'>

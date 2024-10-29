@@ -43,8 +43,8 @@ export default function ResetPassword() {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <meta name='description' content='Products' />
-                <title>Products</title>
+                <meta name='description' content='ResetPassword' />
+                <title>FreshCart | ResetPassword</title>
             </Helmet>
 
             <div className='m-5'>

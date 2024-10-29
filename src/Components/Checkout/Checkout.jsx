@@ -40,7 +40,7 @@ export default function Checkout() {
     <Helmet>
                 <meta charSet="utf-8" />
                 <meta name='description' content='Checkout'/>
-                <title>Checkout</title>
+                <title>FreshCart | Checkout</title>
     </Helmet>
     <div className='w-75 mx-auto my-5'>
       <form onSubmit={formik.handleSubmit}>
