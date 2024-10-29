@@ -110,3 +110,12 @@ a , a:hover{
     width: 90% !important;
     margin: auto;
 }
+
+.network {
+    background-color: #f0f3f2;
+    color: red;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    z-index: 10001;
+}
