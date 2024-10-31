@@ -1,26 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
-:root
-{
-    --main-color:#0aad0a;
-    --light-color:#f0f3f2;
-    --shadow: rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
-    --font-family:'Encode Sans Expanded', sans-serif;
-    --rating-color:#ffc908;
+
+:root {
+    --main-color: #0aad0a;
+    --light-color: #f0f3f2;
+    --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+    --font-family: 'Encode Sans Expanded', sans-serif;
+    --rating-color: #ffc908;
 }
 
-body{
+body {
     font-family: var(--font-family) !important;
 }
-.rating-color
-{
+
+.rating-color {
     color: var(--rating-color);
 }
-.cursor-pointer
-{
+
+.cursor-pointer {
     cursor: pointer;
 }
-a , a:hover{
+
+a,
+a:hover {
     color: black;
     text-decoration: none;
 }
@@ -30,41 +32,40 @@ a , a:hover{
     font-weight: 900;
 }
 
-.product:hover
-{
+.product:hover {
     box-shadow: var(--shadow);
     border: solid 1px var(--main-color);
 }
-.product .btn 
-{
-    transition: transform 1s , opacity 1s;
+
+.product .btn {
+    transition: transform 1s, opacity 1s;
     transform: translateY(100%);
     opacity: 0;
 }
-.product:hover .btn 
-{
+
+.product:hover .btn {
     opacity: 1;
     transform: translateY(0%);
 
 }
-.font-sm
-{
+
+.font-sm {
     font-size: 14px;
 }
-.text-main
-{
+
+.text-main {
     color: var(--main-color);
 }
-.bg-main
-{
+
+.bg-main {
     background-color: var(--main-color) !important;
 }
-.bg-main-light 
-{
+
+.bg-main-light {
     background-color: var(--light-color) !important;
 }
 
-.loading{
+.loading {
     z-index: 405;
 }
 
@@ -84,15 +85,16 @@ a , a:hover{
     display: flex !important;
     justify-content: center !important;
 }
+
 .owl-carousel button.owl-dot {
     background-color: #D6D6D6 !important;
     width: 17px !important;
     height: 5px !important;
-    border-radius: 20px!important;
+    border-radius: 20px !important;
     margin-inline: 4px !important;
     margin-top: 8px !important;
     margin-bottom: 8px !important;
-    padding: 7px !important;   
+    padding: 7px !important;
 }
 
 .owl-carousel button.owl-dot:hover {
@@ -118,4 +120,40 @@ a , a:hover{
     bottom: 15px;
     left: 15px;
     z-index: 10001;
+}
+
+.footer-line {
+    border-bottom: 2px solid #dee2e6 !important;
+    width: 100% !important;
+    margin: auto;
+}
+
+.app-store {
+    width: 110px;
+    height: 70px;
+}
+
+.google-store {
+    width: 110px;
+    height: 80px;
+}
+
+.amazon-pay {
+    width: 60px;
+    height: 40px;
+}
+
+.american-express {
+    width: 60px;
+    height: 40px;
+}
+
+.master-card {
+    width: 50px;
+    height: 35px;
+}
+
+.paypal {
+    width: 90px;
+    height: 20px;
 }
