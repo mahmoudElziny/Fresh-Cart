@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Fresh-Cart/static/css/main.6ce7a1a8.css",
-    "main.js": "/Fresh-Cart/static/js/main.720e4c46.js",
+    "main.css": "/Fresh-Cart/static/css/main.7acbab1e.css",
+    "main.js": "/Fresh-Cart/static/js/main.5f6e53e5.js",
     "static/media/fa-solid-900.ttf": "/Fresh-Cart/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
     "static/media/slider-image-1.jpeg": "/Fresh-Cart/static/media/slider-image-1.3c3940ee0f1c3b17ff9a.jpeg",
     "static/media/fa-brands-400.ttf": "/Fresh-Cart/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
@@ -11,16 +11,21 @@
     "static/media/fa-brands-400.woff2": "/Fresh-Cart/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
     "static/media/error.svg": "/Fresh-Cart/static/media/error.084f5f5b0eb10d3216cb7c939108e1f6.svg",
     "static/media/fa-regular-400.ttf": "/Fresh-Cart/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
+    "static/media/png": "/Fresh-Cart/static/media/d68688491084b57d8db55b94821bbed9.362d262e2a483b60ab03.png",
+    "static/media/App_Store_(iOS)-Badge-Logo.wine.png": "/Fresh-Cart/static/media/App_Store_(iOS)-Badge-Logo.wine.1b0220ddf4f3d7c7c2b0.png",
+    "static/media/Google_Play-Badge-Logo.wine.png": "/Fresh-Cart/static/media/Google_Play-Badge-Logo.wine.388cd1c5f7dcfced4e20.png",
     "static/media/fa-regular-400.woff2": "/Fresh-Cart/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
+    "static/media/pngwing.com.png": "/Fresh-Cart/static/media/pngwing.com.e3abf7ded251409784b6.png",
+    "static/media/amazon-pay.png": "/Fresh-Cart/static/media/amazon-pay.349e02c09daf15fd3aec.png",
     "static/media/fa-v4compatibility.ttf": "/Fresh-Cart/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
     "static/media/freshcart-logo.svg": "/Fresh-Cart/static/media/freshcart-logo.53f7a424c3aedc30a0fb46dc2278137c.svg",
     "static/media/fa-v4compatibility.woff2": "/Fresh-Cart/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/Fresh-Cart/index.html",
-    "main.6ce7a1a8.css.map": "/Fresh-Cart/static/css/main.6ce7a1a8.css.map",
-    "main.720e4c46.js.map": "/Fresh-Cart/static/js/main.720e4c46.js.map"
+    "main.7acbab1e.css.map": "/Fresh-Cart/static/css/main.7acbab1e.css.map",
+    "main.5f6e53e5.js.map": "/Fresh-Cart/static/js/main.5f6e53e5.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ce7a1a8.css",
-    "static/js/main.720e4c46.js"
+    "static/css/main.7acbab1e.css",
+    "static/js/main.5f6e53e5.js"
   ]
 }
